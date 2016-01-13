@@ -16,8 +16,8 @@ void isotp_complete_send(IsoTpShims* shims, IsoTpMessage* message,
 IsoTpSendHandle isotp_send_single_frame(IsoTpShims* shims, IsoTpMessage* message,
         IsoTpMessageSentHandler callback) {
     IsoTpSendHandle handle = {
-        success: false,
-        completed: true
+        .success = false,
+        .completed = true
     };
 
     uint8_t can_data[CAN_MESSAGE_BYTE_SIZE] = {0};
@@ -48,8 +48,8 @@ IsoTpSendHandle isotp_send_multi_frame(IsoTpShims* shims, IsoTpMessage* message,
     // TODO make sure to copy message into a local buffer
     shims->log("Only single frame messages are supported");
     IsoTpSendHandle handle = {
-        success: false,
-        completed: true
+        .success = false,
+        .completed = true
     };
     // TODO need to set sending and receiving arbitration IDs separately if we
     // can't always just add 0x8 (and I think we can't)
@@ -60,8 +60,8 @@ IsoTpSendHandle isotp_send(IsoTpShims* shims, const uint16_t arbitration_id,
         const uint8_t payload[], uint16_t size,
         IsoTpMessageSentHandler callback) {
     IsoTpMessage message = {
-        arbitration_id: arbitration_id,
-        size: size
+        .arbitration_id = arbitration_id,
+        .size = size
     };
 
     memcpy(message.payload, payload, size);
