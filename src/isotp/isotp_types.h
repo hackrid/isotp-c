@@ -125,6 +125,16 @@ typedef enum {
     PCI_FLOW_STATUS_OVERFLOW = 0x2
 } IsoTpFlowStatus;
 
+/* Private: Flow control frame.
+ */
+typedef struct {
+    IsoTpFlowStatus flow_status;
+    uint8_t block_size;
+    uint8_t burst_frames_remaining;
+    uint8_t separation_time;
+    bool completed;
+} IsoTpFlowControlFrame;
+
 #ifdef __cplusplus
 }
 #endif
