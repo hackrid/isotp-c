@@ -19,7 +19,7 @@ IsoTpShims isotp_init_shims(LogShim log, SendCanMessageShim send_can_message,
 
 void isotp_message_to_string(const IsoTpMessage* message, char* destination,
         size_t destination_length) {
-    snprintf(destination, destination_length, "ID: 0x%" SCNd32 ", Payload: 0x%02x%02x%02x%02x%02x%02x%02x%02x",
+    snprintf(destination, destination_length, "ID: 0x%" SCNd32 ", Payload: 0x%02x%02x%02x%02x%02x%02x%02x",
             message->arbitration_id,
             message->payload[0],
             message->payload[1],
@@ -27,6 +27,5 @@ void isotp_message_to_string(const IsoTpMessage* message, char* destination,
             message->payload[3],
             message->payload[4],
             message->payload[5],
-            message->payload[6],
-            message->payload[7]);
+            message->payload[6]);
 }

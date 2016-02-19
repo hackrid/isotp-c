@@ -6,11 +6,7 @@
 #include <stdio.h>
 
 #define CAN_MESSAGE_BYTE_SIZE 8
-#define MAX_ISO_TP_MESSAGE_SIZE 4096
-// TODO we want to avoid malloc, and we can't be allocated 4K on the stack for
-// each IsoTpMessage, so for now we're setting an artificial max message size
-// here - since we only handle single frame messages, 8 bytes is plenty.
-#define OUR_MAX_ISO_TP_MESSAGE_SIZE 8
+#define MAX_ISO_TP_MESSAGE_SIZE 7
 
 /* Private: The default timeout to use when waiting for a response during a
  * multi-frame send or receive.
@@ -39,8 +35,8 @@ extern "C" {
  */
 typedef struct {
     const uint32_t arbitration_id;
-    uint8_t payload[OUR_MAX_ISO_TP_MESSAGE_SIZE];
-    uint16_t size;
+    uint8_t payload[MAX_ISO_TP_MESSAGE_SIZE];
+    uint8_t size;
     bool completed;
 } IsoTpMessage;
 
