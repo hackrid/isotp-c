@@ -1,4 +1,4 @@
-ISO-TP (ISO 15765-2) Support Library in C
+ ISO-TP (ISO 15765-2) Support Library in C
 ================================
 
 This is a platform agnostic C library that implements the ISO 15765-2 (also
